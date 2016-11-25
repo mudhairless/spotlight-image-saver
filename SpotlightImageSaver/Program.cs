@@ -103,86 +103,22 @@ namespace SpotlightImageSaver
                 Console.WriteLine("Assets dir: {0}", spotlight_path);
             }
 
-            existingImages = new List<JpgInfo>();
-            Parallel.ForEach(texistingImages, (item) =>
-            {
-                try
-                {
-                    existingImages.Add(new JpgInfo(item));
-                }
-                catch (Exception ex)
-                {
-                    if (ex.Message != "Not a JPEG File")
-                    {
-                        throw;
-                    }
-                }
-            });
-
-            newImages = new List<JpgInfo>();
-            Parallel.ForEach(tnewImages, (item) =>
-            {
-                try
-                {
-                    newImages.Add(new JpgInfo(item));
-                }
-                catch (Exception ex)
-                {
-                    if (ex.Message != "Not a JPEG File")
-                    {
-                        throw;
-                    }
-                }
-            });
+            existingImages = FileProcess.GetJpgInfo(texistingImages);
+            newImages = FileProcess.GetJpgInfo(tnewImages);
 
             if (beVerbose)
             {
                 Console.WriteLine("After initial filtering, {0} images left to process.", newImages.Count);
             }
 
-            var tempNewImages = new List<JpgInfo>(newImages);
-            foreach (JpgInfo item in tempNewImages)
-            {
-                if (onlyDesktop && (item.height > item.width))
-                {
-                    newImages.Remove(item);
-                }
-                if (onlyMobile && (item.width > item.height))
-                {
-                    newImages.Remove(item);
-                }
-                if (item.width < 1080 || item.height < 1080 || item.width > 1920 || item.height > 1920)
-                {
-                    newImages.Remove(item);
-                }
-            }
+            newImages = FileProcess.FilterOutInvalid(newImages, onlyMobile, onlyDesktop);
 
             if (beVerbose)
             {
                 Console.WriteLine("After appropriateness filtering, {0} images remain to process.", newImages.Count);
             }
 
-            List<string> filesToCopy = new List<string>();
-            foreach (JpgInfo newf in newImages)
-            {
-                var existing = false;
-                foreach (JpgInfo oldf in existingImages)
-                {
-                    if (newf.hash.Equals(oldf.hash))
-                    {
-                        existing = true;
-                        break;
-                    }
-                }
-                if (!existing)
-                {
-                    if (beVerbose)
-                    {
-                        Console.WriteLine(newf.ToString());
-                    }
-                    filesToCopy.Add(newf.filepath);
-                }
-            }
+            List<JpgInfo> filesToCopy = FileProcess.FilesToCopy(existingImages, newImages);
 
             if (beVerbose)
             {
@@ -192,12 +128,12 @@ namespace SpotlightImageSaver
             if (filesToCopy.Count > 0)
             {
                 Console.WriteLine("Copying {0} new files...", filesToCopy.Count);
-                foreach (string item in filesToCopy)
+                foreach (JpgInfo item in filesToCopy)
                 {
-                    string destFileName = Path.Combine(path, Path.GetFileNameWithoutExtension(item) + ".spotlight.jpg");
+                    string destFileName = Path.Combine(path, item.newFileName);
                     if (!dryrun)
                     {
-                        File.Copy(item, destFileName);
+                        File.Copy(item.filepath, destFileName);
                         File.SetLastWriteTime(destFileName, DateTime.Now);
                     }
                     else

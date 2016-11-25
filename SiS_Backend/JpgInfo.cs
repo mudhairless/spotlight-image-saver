@@ -26,13 +26,14 @@ using System.Security.Cryptography;
 
 namespace SpotlightImageSaver
 {
-    internal class JpgInfo
+    public class JpgInfo
     {
         public int width = 0;
         public int height = 0;
         public bool isPortrait = false;
         public string hash = "";
         public string filepath;
+        public string newFileName;
         public bool isJFIF = false;
 
         public override string ToString()
@@ -78,6 +79,8 @@ namespace SpotlightImageSaver
             }
 
             if (height > width) isPortrait = true;
+
+            newFileName = Path.GetFileNameWithoutExtension(filepath) + ".spotlight.jpg";
         }
     }
 }
