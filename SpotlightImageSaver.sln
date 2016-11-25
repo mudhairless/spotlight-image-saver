@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpotlightImageSaverCLI", "S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiS_Backend", "SiS_Backend\SiS_Backend.csproj", "{8AC3AAF3-7BD3-4A7D-A6D6-166FDE37E3EE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpotlightImageSaver_GUI", "SpotlightImageSaver_GUI\SpotlightImageSaver_GUI.csproj", "{0DDC4B35-0A44-48B9-A50F-9C14964489CB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{8AC3AAF3-7BD3-4A7D-A6D6-166FDE37E3EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8AC3AAF3-7BD3-4A7D-A6D6-166FDE37E3EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8AC3AAF3-7BD3-4A7D-A6D6-166FDE37E3EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DDC4B35-0A44-48B9-A50F-9C14964489CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DDC4B35-0A44-48B9-A50F-9C14964489CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DDC4B35-0A44-48B9-A50F-9C14964489CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DDC4B35-0A44-48B9-A50F-9C14964489CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -49,14 +49,15 @@ namespace SpotlightImageSaver
 
         public static List<JpgInfo> FilterOutInvalid(List<JpgInfo> items, bool portraitOnly = false, bool landscapeOnly = false)
         {
+            if (items.Count == 0) return null;
             var outlist = new List<JpgInfo>(items);
             Parallel.ForEach(items, (item) =>
             {
-                if (landscapeOnly && (item.height > item.width))
+                if (landscapeOnly && (item.isPortrait))
                 {
                     outlist.Remove(item);
                 }
-                if (portraitOnly && (item.width > item.height))
+                if (portraitOnly && (!item.isPortrait))
                 {
                     outlist.Remove(item);
                 }
@@ -70,12 +71,15 @@ namespace SpotlightImageSaver
 
         public static List<JpgInfo> FilesToCopy(List<JpgInfo> oldf, List<JpgInfo> newf)
         {
+            if (newf == null || oldf == null) return null;
             List<JpgInfo> outlist = new List<JpgInfo>();
             Parallel.ForEach(newf, (newfile) =>
              {
+                 if (newfile == null) return;
                  var existing = false;
                  foreach (JpgInfo oldfile in oldf)
                  {
+                     if (oldfile == null) break;
                      if (newfile.hash.Equals(oldfile.hash))
                      {
                          existing = true;

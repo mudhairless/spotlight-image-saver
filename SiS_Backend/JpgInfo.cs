@@ -71,11 +71,14 @@ namespace SpotlightImageSaver
             }
             else
             {
-                Image img = Image.FromStream(new MemoryStream(finfo));
-                width = img.Size.Width;
-                height = img.Size.Height;
-
-                img.Dispose();
+                using (MemoryStream ms = new MemoryStream(finfo))
+                {
+                    using (Image img = Image.FromStream(ms))
+                    {
+                        width = img.Size.Width;
+                        height = img.Size.Height;
+                    }
+                }
             }
 
             if (height > width) isPortrait = true;

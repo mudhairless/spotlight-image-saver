@@ -104,7 +104,9 @@ namespace SpotlightImageSaver
             }
 
             existingImages = FileProcess.GetJpgInfo(texistingImages);
+            if (existingImages == null) return 1;
             newImages = FileProcess.GetJpgInfo(tnewImages);
+            if (newImages == null) return 1;
 
             if (beVerbose)
             {
@@ -112,7 +114,11 @@ namespace SpotlightImageSaver
             }
 
             newImages = FileProcess.FilterOutInvalid(newImages, onlyMobile, onlyDesktop);
-
+            if (newImages == null)
+            {
+                Console.WriteLine("No valid images available");
+                return 0;
+            }
             if (beVerbose)
             {
                 Console.WriteLine("After appropriateness filtering, {0} images remain to process.", newImages.Count);
@@ -125,7 +131,7 @@ namespace SpotlightImageSaver
                 Console.WriteLine("Matching Images: {0}", newImages.Count - filesToCopy.Count);
             }
 
-            if (filesToCopy.Count > 0)
+            if (filesToCopy != null && filesToCopy.Count > 0)
             {
                 Console.WriteLine("Copying {0} new files...", filesToCopy.Count);
                 foreach (JpgInfo item in filesToCopy)
