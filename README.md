@@ -15,7 +15,7 @@ use as backgrounds.
 2. Open a command prompt.
 3. Run this command:
 
-`C:\path\to\SiS\spotimgsave.exe "C:\Path\ToSave\Images"`
+`spotimgsave.exe "C:\Path\ToSave\Images"`
 
 4. You may now close the command prompt.
 
