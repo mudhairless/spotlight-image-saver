@@ -19,4 +19,38 @@ use as backgrounds.
 
 4. You may now close the command prompt.
 
-_Windows is a Registered Trademark of Microsoft and is used without permission._
+### Command Line Reference
+
+#### Usage
+`spotimgsave.exe path/to/save/files/to [--only-desktop|--only-mobile]`
+
+#### Supported Commands
+- --only-desktop - Only copy files in landscape orientation
+- --only-mobile  - Only copy files in portrait orientation
+
+Each option is exclusive cannot be combined with the other.
+
+#### Environment Variables
+- VERBOSE - if set to a non-empty value you will get more output
+- DRYRUN - if set to a non-empty value no copying will take place just a list of what would've been copied.
+
+#### Example
+__Command Prompt:__
+```
+set DRYRUN=1
+
+set VERBOSE=1
+
+spotimgsave save/here
+```
+
+Clear variables with:
+`set DRYRUN=`
+
+__Bash/MSYS:__
+```bash
+DRYRUN=1 VERBOSE=1 spotimgsave.exe save/here
+```
+
+##### Covering my butt
+_Windows and Windows 10 are Registered Trademarks of Microsoft and is used without permission._
