@@ -1,0 +1,145 @@
+<!doctype html>
+<!-- The Time Machine GitHub pages theme was designed and developed by Jon Rohan, on Feb 7, 2012. -->
+<!-- Follow him for fun. http://twitter.com/jonrohan. Tail his code on https://github.com/jonrohan -->
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <link rel="stylesheet" href="stylesheets/stylesheet.css" media="screen">
+  <link rel="stylesheet" href="stylesheets/github-dark.css">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="javascripts/script.js"></script>
+
+  <title>Spotlight Image Saver</title>
+  <meta name="description" content="Save Windows10 Spotlight Images">
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <header>
+      <h1 class="title">Spotlight Image Saver</h1>
+    </header>
+    <div id="container">
+      <p class="tagline">Save Windows10 Spotlight Images</p>
+      <div id="main" role="main">
+        <div class="download-bar">
+        <div class="inner">
+          <a href="https://github.com/mudhairless/spotlight-image-saver/tarball/master" class="download-button tar"><span>Download</span></a>
+          <a href="https://github.com/mudhairless/spotlight-image-saver/zipball/master" class="download-button zip"><span>Download</span></a>
+          <a href="https://github.com/mudhairless/spotlight-image-saver" class="code">View Spotlight Image Saver on GitHub</a>
+        </div>
+        <span class="blc"></span><span class="trc"></span>
+        </div>
+        <article class="markdown-body">
+          <h1>
+<a id="spotlight-image-saver" class="anchor" href="#spotlight-image-saver" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Spotlight Image Saver</h1>
+
+<p>Saves the Windows 10 Spotlight Images to a folder for
+use as backgrounds.</p>
+
+<p><a href="https://ci.appveyor.com/project/mudhairless/spotlight-image-saver"><img src="https://ci.appveyor.com/api/projects/status/h68ehqu2bra1g1ej?svg=true" alt="Build status"></a></p>
+
+<p><a href="https://github.com/mudhairless/spotlight-image-saver/releases">Releases</a></p>
+
+<h2>
+<a id="usage-gui" class="anchor" href="#usage-gui" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage (GUI)</h2>
+
+<ol>
+<li>Open the program</li>
+<li>Set the save directory with the button</li>
+<li>The close button minimizes the app to the tray, use File &gt; Exit to really close.</li>
+<li>Enjoy notifications when the app finds new pictures.</li>
+</ol>
+
+<h2>
+<a id="usage-command-line" class="anchor" href="#usage-command-line" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage (Command Line)</h2>
+
+<ol>
+<li>Create the Directory to save images to.</li>
+<li>Open a command prompt.</li>
+<li>Run this command:</li>
+</ol>
+
+<p><code>spotimgsave.exe "C:\Path\ToSave\Images"</code></p>
+
+<ol>
+<li>You may now close the command prompt.</li>
+</ol>
+
+<h3>
+<a id="command-line-reference" class="anchor" href="#command-line-reference" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Command Line Reference</h3>
+
+<h4>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h4>
+
+<p><code>spotimgsave.exe path/to/save/files/to [--only-desktop|--only-mobile]</code></p>
+
+<h4>
+<a id="supported-commands" class="anchor" href="#supported-commands" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Supported Commands</h4>
+
+<ul>
+<li>--only-desktop - Only copy files in landscape orientation</li>
+<li>--only-mobile  - Only copy files in portrait orientation</li>
+</ul>
+
+<p>Each option is exclusive cannot be combined with the other.</p>
+
+<h4>
+<a id="environment-variables" class="anchor" href="#environment-variables" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Environment Variables</h4>
+
+<ul>
+<li>VERBOSE - if set to a non-empty value you will get more output</li>
+<li>DRYRUN - if set to a non-empty value no copying will take place just a list of what would've been copied.</li>
+</ul>
+
+<h4>
+<a id="example" class="anchor" href="#example" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h4>
+
+<p><strong>Command Prompt:</strong></p>
+
+<pre><code>set DRYRUN=1
+
+set VERBOSE=1
+
+spotimgsave save/here
+</code></pre>
+
+<p>Clear variables with:
+<code>set DRYRUN=</code></p>
+
+<p><strong>Bash/MSYS:</strong></p>
+
+<div class="highlight highlight-source-shell"><pre>DRYRUN=1 VERBOSE=1 spotimgsave.exe save/here</pre></div>
+
+<h5>
+<a id="covering-my-butt" class="anchor" href="#covering-my-butt" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Covering my butt</h5>
+
+<p><em>Windows and Windows 10 are Registered Trademarks of Microsoft and is used without permission.</em></p>
+        </article>
+      </div>
+    </div>
+    <footer>
+      <div class="owner">
+      <p><a href="https://github.com/mudhairless" class="avatar"><img src="https://avatars3.githubusercontent.com/u/1571786?v=3&amp;s=60" width="48" height="48"></a> <a href="https://github.com/mudhairless">mudhairless</a> maintains <a href="https://github.com/mudhairless/spotlight-image-saver">Spotlight Image Saver</a></p>
+
+
+      </div>
+      <div class="creds">
+        <small>This page generated using <a href="https://pages.github.com/">GitHub Pages</a><br>theme by <a href="https://twitter.com/jonrohan/">Jon Rohan</a></small>
+      </div>
+    </footer>
+  </div>
+  <div class="current-section">
+    <a href="#top">Scroll to top</a>
+    <a href="https://github.com/mudhairless/spotlight-image-saver/tarball/master" class="tar">tar</a><a href="https://github.com/mudhairless/spotlight-image-saver/zipball/master" class="zip">zip</a><a href="" class="code">source code</a>
+    <p class="name"></p>
+  </div>
+
+  
+</body>
+</html>
