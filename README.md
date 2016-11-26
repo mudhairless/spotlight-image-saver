@@ -2,6 +2,8 @@
 Saves the Windows 10 Spotlight Images to a folder for
 use as backgrounds.
 
+[![Build status](https://ci.appveyor.com/api/projects/status/h68ehqu2bra1g1ej?svg=true)](https://ci.appveyor.com/project/mudhairless/spotlight-image-saver)
+
 ## Usage (GUI)
 1. Open the program
 2. Set the save directory with the button
